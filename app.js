@@ -1,5 +1,4 @@
 import express from 'express';
-import morgan from 'morgan';
 import { getHealth } from './routs/health.js';
 import { getBrief } from './routs/brief.js';
 import { getTarget } from './routs/targets.js';
@@ -7,7 +6,16 @@ import { getTarget } from './routs/targets.js';
 const port = 3000;
 const app = express();
 
-app.use(morgan(':method :url :status :response-time ms'));
+app.use((req, res, next) => {
+  console.log(req.method, req.url, new Date().toISOString());
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader('X-Server-Start-Time', new Date().toLocaleTimeString());
+  next();
+});
+
 app.use('/health', getHealth);
 app.use('/briefing', getBrief);
 app.use('/targets', getTarget);

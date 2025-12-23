@@ -1,1 +1,44 @@
-[{ "id": 4, "region": "tlv" }]
+{
+  "targets": [
+    {
+      "id": "t-102",
+      "codeName": "Iron Falcon",
+      "region": "north",
+      "priority": 4,
+      "status": "new",
+      "createdAt": "2025-12-21T09:30:00.000Z"
+    },
+    {
+      "id": "t-104",
+      "codeName": "Crimson Viper",
+      "region": "north",
+      "priority": 5,
+      "status": "completed",
+      "createdAt": "2025-12-23T14:45:00.000Z"
+    },
+    {
+      "id": "t-105",
+      "codeName": "Shadow Hawk",
+      "region": "east",
+      "priority": 3,
+      "status": "new",
+      "createdAt": "2025-12-24T16:00:00.000Z"
+    },
+    {
+      "id": "t-103",
+      "codeName": "Silent Dagger",
+      "region": "south",
+      "priority": 2,
+      "status": "in-progress",
+      "createdAt": "2025-12-22T11:15:00.000Z"
+    },
+    {
+      "id": "t-10zzzzz3",
+      "codeName": "Silent Dagger",
+      "region": "south",
+      "priority": 2,
+      "status": "in-progress",
+      "createdAt": "2025-12-22T11:15:00.000Z"
+    }
+  ]
+}
