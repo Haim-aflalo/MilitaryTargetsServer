@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 export function hasSameProps(obj) {
   const obj2 = {
     id: 0,
@@ -6,7 +7,6 @@ export function hasSameProps(obj) {
     region: 0,
     priority: 0,
     status: 0,
-    createdAt: 0,
   };
   return Object.keys(obj).every(function (prop) {
     return obj2.hasOwnProperty(prop);

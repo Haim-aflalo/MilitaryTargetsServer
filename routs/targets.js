@@ -5,8 +5,6 @@ export const getTarget = express();
 
 getTarget.use(express.json());
 
-
-
 getTarget.get('/:id', async (req, res) => {
   try {
     const data = await read('./data/targets.json');
@@ -19,8 +17,6 @@ getTarget.get('/:id', async (req, res) => {
     console.error('An error occurred: ' + error.message);
   }
 });
-
-
 
 getTarget.get('/', async (req, res) => {
   try {
@@ -38,15 +34,14 @@ getTarget.get('/', async (req, res) => {
   }
 });
 
-
-
 getTarget.post('/', async (req, res) => {
   try {
     const body = req.body;
     if (hasSameProps(body)) {
       const data = await read('./data/targets.json');
+      body['CreatedAt'] = new Date().toISOString();
       data['targets'].push(body);
-      await write('./data/targets.json', body);
+      await write('./data/targets.json', data);
       res.status(200).send(body, 'added');
     } else {
       res.status(400).send('body does not correspond');
@@ -55,8 +50,6 @@ getTarget.post('/', async (req, res) => {
     console.error('An error occurred: ' + error.message);
   }
 });
-
-
 
 getTarget.put('/:id', async (req, res) => {
   try {
@@ -77,8 +70,6 @@ getTarget.put('/:id', async (req, res) => {
     console.error('An error occurred: ' + error.message);
   }
 });
-
-
 
 getTarget.delete('/:id', async (req, res) => {
   try {
